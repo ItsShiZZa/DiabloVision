@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Scan Values Script"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{$lua}
+if syntaxcheck then return end
+if memrec then print(memrec.Description) end
+
+------------------------------ ENABLE ------------------------------
+[ENABLE]
+scan=AOBScan("44 74 64 BF 3F DB 74 3E F4 41 BD 3E")
+CamOffsets=tonumber("0x"..scan[0])
+registerSymbol(CamOffsets)
+
+------------------------------ DISABLE ------------------------------
+[DISABLE]
+unregisterSymbol(CamOffsets)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1</ID>
+          <Description>"CamPitch"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>CamOffsets</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"CamYaw"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>CamOffsets+0x4</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>3</ID>
+          <Description>"CamRoll"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>CamOffsets+0x8</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>6</ID>
+      <Description>"Scan Zoom Value Script"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{$lua}
+if syntaxcheck then return end
+if memrec then print(memrec.Description) end
+
+------------------------------ ENABLE ------------------------------
+[ENABLE]
+scan=AOBScan("00 00 30 04 ?? ?? ?? 7F 00 00 06 00 00 00")
+ZoomOffset=tonumber("0x"..scan[0])
+ZoomOffset=ZoomOffset+0x3A
+registerSymbol(ZoomOffset)
+
+------------------------------ DISABLE ------------------------------
+[DISABLE]
+unregisterSymbol(ZoomOffset)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>8</ID>
+          <Description>"ZoomValue"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>ZoomOffset</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
