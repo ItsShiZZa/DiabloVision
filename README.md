@@ -1,4 +1,5 @@
-# DiabloVision
+# DiabloVision2
+# Updated to work with newest version of D2R (updated 12-27-2022)
 # Ability to alter the camera pespective in Diablo 2 Resurrected (D2R) to any angle desired.
 
 Firstly, this code in this repo is a HOT MESS OF GARBAGE. Although it should work on modern Windows 10 most of the time....is for the purposes of Proof of Concept and for novices to have a way to figure out how to alter the D2R.exe memory addresses on the fly. You actually only need 4 addresses/values (same difference one just means pointer to a value the other is, obviously, simply the value you're wanting to have stored somehwere in memory.
